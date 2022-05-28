@@ -4,20 +4,45 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-// import { BookingService } from './Shared/booking.service';
-import { IdbService } from './Shared/idb.service';
+import { NgxIndexedDBModule, DBConfig } from 'ngx-indexed-db';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { JwtInterceptor } from './interceptor copy';
+import { DataService } from './data.service';
+
+
+const dbConfig: DBConfig  = {
+  name: 'MyDatabase1',
+  version: 1,
+  objectStoresMeta: [{
+    store: 'MyStore1',
+    storeConfig: { keyPath: 'id', autoIncrement: true },
+    storeSchema: [
+      { name: 'id', keypath: 'id', options: { unique: false } },
+      { name: 'name', keypath: 'name', options: { unique: false } },
+      { name: 'country', keypath: 'country', options: { unique: false } },
+      { name: 'imgUrl', keypath: 'imgUrl', options: { unique: false } },
+      { name: 'fromDate', keypath: 'fromDate', options: { unique: false } },
+      { name: 'toDate', keypath: 'toDate', options: { unique: false } },
+    ]
+  }]
+};
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+   
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+   
+    NgxIndexedDBModule.forRoot(dbConfig)
    
   ],
-  providers: [],
+  providers: [[ DataService,
+    {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true}]],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

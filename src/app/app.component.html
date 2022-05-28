@@ -1,1 +1,25 @@
-<button (click)="demo2()">add</button>
+<!-- <app-items name="{{ name }}"></app-items> -->
+<p>
+WELCOME TO INDEXED DB SAMPLE
+</p>
+
+
+<table >
+  <tr *ngFor="let p of  allTripsIndexedDB">
+    <th>{{p.id}}</th>
+    <th>{{p.name}}</th>
+    <th>{{p.country}}</th>
+    <th>{{p.imgUrl}}</th>
+    <th>{{p.fromDate}}</th>
+    <th>{{p.toDate}}</th>
+
+  </tr>
+</table>
+<button  type="button" (click)="add()">Add </button>
+<button  type="button" (click)="bulkadd()">Bulkadd </button>
+<button  type="button" (click)="show()">Show all</button>
+<button  type="button" (click)="clear()">Clear All entries</button>
+<button  type="button" (click)="deleteDataBase()">deleteDataBase</button>
+
+<button  type="button" (click)="getDataBaseName()">GetBase</button>
+
