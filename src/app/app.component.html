@@ -12,7 +12,8 @@ WELCOME TO INDEXED DB SAMPLE
     <th>{{p.imgUrl}}</th>
     <th>{{p.fromDate}}</th>
     <th>{{p.toDate}}</th>
-
+    <button  type="button" (click)="delete()">delete </button>
+    <button  type="button" (click)="addNewItem()">add new item </button>
   </tr>
 </table>
 <button  type="button" (click)="add()">Add </button>
@@ -20,6 +21,5 @@ WELCOME TO INDEXED DB SAMPLE
 <button  type="button" (click)="show()">Show all</button>
 <button  type="button" (click)="clear()">Clear All entries</button>
 <button  type="button" (click)="deleteDataBase()">deleteDataBase</button>
-
-<button  type="button" (click)="getDataBaseName()">GetBase</button>
+<button  type="button" (click)="getDataBaseName()">GetBaseId</button>
 
