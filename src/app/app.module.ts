@@ -24,7 +24,20 @@ const dbConfig: DBConfig  = {
       { name: 'fromDate', keypath: 'fromDate', options: { unique: false } },
       { name: 'toDate', keypath: 'toDate', options: { unique: false } },
     ]
-  }]
+  },
+  {
+    store: 'MyStore2',
+    storeConfig: { keyPath: 'id', autoIncrement: true },
+    storeSchema: [
+      { name: 'id', keypath: 'id', options: { unique: false } },
+      { name: 'name', keypath: 'name', options: { unique: false } },
+      { name: 'country', keypath: 'country', options: { unique: false } },
+      { name: 'imgUrl', keypath: 'imgUrl', options: { unique: false } },
+      { name: 'fromDate', keypath: 'fromDate', options: { unique: false } },
+      { name: 'toDate', keypath: 'toDate', options: { unique: false } },
+    ]
+  }
+]
 };
 
 @NgModule({
