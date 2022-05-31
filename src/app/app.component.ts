@@ -46,15 +46,18 @@ export class AppComponent implements OnInit {
     ); }
 
     add() {
-      for(let i=0; i<=this.allTrips.length;i++){
-    
-        this.dbService
-          .add('MyStore1', 
-          this.allTrips[i])
-          .subscribe((key) => console.log( 'key:', key));
+      this.dbService.bulkAdd('MyStore1', 
+          this.allTrips).subscribe(x=>console.log('bulk add  db :',x));
         }
+      // for(let i=0; i<=this.allTrips.length;i++){
+    
+      //   this.dbService
+      //     .add('MyStore1', 
+      //     this.allTrips[i])
+      //     .subscribe((key) => console.log( 'key:', key));
+      //   }
           // this.show();
-      }
+      // }
   show() {
     this.dbService.getAll<any>('MyStore1').subscribe(
       (x) => {

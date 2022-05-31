@@ -23,8 +23,8 @@ const dbConfig: DBConfig  = {
       { name: 'imgUrl', keypath: 'imgUrl', options: { unique: false } },
       { name: 'fromDate', keypath: 'fromDate', options: { unique: false } },
       { name: 'toDate', keypath: 'toDate', options: { unique: false } },
-    ]
-  },
+    ]},
+  // },
   {
     store: 'MyStore2',
     storeConfig: { keyPath: 'id', autoIncrement: true },
